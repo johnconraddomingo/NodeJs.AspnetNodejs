@@ -5,5 +5,8 @@
   "main": "server.js",
   "author": {
     "name": "dojo"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
   }
 }
