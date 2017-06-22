@@ -1,4 +1,36 @@
 'use strict';
+
+// Replacing these now with express
+
+
+var http = require('http');
+var express = require('express');
+var app = express();
+
+
+
+app.get('/', function (req, res) {
+    res.send('<html><h1>Hello World</h1></html>');
+});
+
+app.get('/api/defaultPerson', function (req, res) {
+
+    var staticPersonInfo = require('./modules/personInfo.js');
+    res.set("Content-Type", "application/json");
+     res.send(staticPersonInfo.person);
+    
+});
+
+var server = http.createServer(app);
+server.listen(1337, function () {
+    console.log("Express is running on port 1337");
+});
+
+/*
+
+// These were from the earlier part of the blog.
+// Hiding...
+
 var http = require('http');
 var port = process.env.PORT || 1337;
 
@@ -17,3 +49,4 @@ http.createServer(function (req, res) {
     res.end(JSON.stringify(staticPersonInfo.person));
 
 }).listen(port);
+*/
